@@ -13,11 +13,13 @@ def main():
 
     with open('test1/timestamps_trialtest.txt', 'w') as f: 
         for i in t_stamps:
-            f.write(i)
+            f.write(str(i))
+            f.write('\n')
     
     with open('test1/accelerations_trialtest.txt', 'w') as f: 
         for i in y_accels:
-            f.write(i)
+            f.write(str(i))
+            f.write('\n')
 
     print(t_stamps)
     print(y_accels)
@@ -31,8 +33,7 @@ def main():
 
     ax.set_xlabel('time (s)')
     ax.set_ylabel('acceleration (m/s^2)')
-    
-    
+
     plt.savefig('test1/trial1.png')
 
 if __name__ == '__main__':
