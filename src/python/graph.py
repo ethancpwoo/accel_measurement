@@ -6,17 +6,18 @@ from record import record
 
 def main():
 
+    directory = 'test2/'
     t_stamps, y_accels = record()
 
     t_stamps = np.array(t_stamps)
     y_accels = np.array(y_accels)
 
-    with open('test1/timestamps_trialtest.txt', 'w') as f: 
+    with open(directory + 'timestamps.txt', 'w') as f: 
         for i in t_stamps:
             f.write(str(i))
             f.write('\n')
     
-    with open('test1/accelerations_trialtest.txt', 'w') as f: 
+    with open(directory +'accelerations.txt', 'w') as f: 
         for i in y_accels:
             f.write(str(i))
             f.write('\n')
@@ -34,7 +35,7 @@ def main():
     ax.set_xlabel('time (s)')
     ax.set_ylabel('acceleration (m/s^2)')
 
-    plt.savefig('test1/trial1.png')
+    plt.savefig(directory + 'graph.png')
 
 if __name__ == '__main__':
     main()
