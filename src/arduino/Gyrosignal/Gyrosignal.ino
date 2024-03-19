@@ -4,6 +4,9 @@
 // define global variables
 byte values[6]; //return values
 char output[512]; //output string
+int data_register = 0x32;
+int x, y, z;
+float accel_x, accel_y, accel_z, mag;
 
 void setup() {
   Wire.begin();
@@ -30,8 +33,6 @@ void setup() {
 }
 
 void loop() {
-  int data_register = 0x32;
-  int x, y, z;
 
   // Read from data register
   Wire.beginTransmission(accel_module);
@@ -58,16 +59,19 @@ void loop() {
   y = (((int)values[3] << 8) | values[2]);
   z = (((int)values[5] << 8) | values[4]);
 
-  sprintf(output, "%d %d %d", x, y, z);
-  Serial.print(output);
-  Serial.write(10);
-  delay(100);
+  accel_x = x * 0.039;
+  accel_y = y * 0.039;
+  accel_z = z * 0.039;
 
-  // Serial.print(x);
+  mag = sqrt(sq(accel_x) + sq(accel_y) + sq(accel_z));
+  Serial.println(mag);
+  
+  // Serial.print(accel_x);
   // Serial.print(' ');
-  // Serial.print(y);
+  // Serial.println(accel_y);
   // Serial.print(' ');
-  // Serial.println(z);
+  // Serial.println(accel_z);
 
+  delay(10);
 
 }

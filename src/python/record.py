@@ -1,4 +1,5 @@
 import serial
+import struct
 import time
 
 import numpy as np
@@ -10,9 +11,13 @@ def record():
     t_stamps = []
     start_time = time.time()
     try:
+
+        for i in range(100):
+            s.readline()
+
         while True:
             res = s.readline()
-            res = res.decode().strip()
+            res = res.strip().decode('utf-8', 'ignore')
             print(res)
             print(time.time())
             y_accels.append(float(res))
