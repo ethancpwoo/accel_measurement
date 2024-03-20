@@ -3,7 +3,7 @@ from scipy.signal import find_peaks
 
 def main():
 
-    directory = '0cm_0/'
+    directory = 'eval/'
     t_stamps = []
     y_accels = []
     timestamps = []
@@ -22,7 +22,7 @@ def main():
     index, peaks = find_peaks(y_accels, prominence=5)
     for i in index: 
         #print(t_stamps[i])
-        if t_stamps[i] > 4:
+        if t_stamps[i] > 5:
             timestamps.append(t_stamps[i])
     
     start = timestamps[1:]
