@@ -3,7 +3,7 @@ from scipy.signal import find_peaks
 
 def main():
 
-    directory = 'eval/'
+    directory = 'eval2/'
     t_stamps = []
     y_accels = []
     timestamps = []
@@ -12,7 +12,7 @@ def main():
         for line in f:
             t_stamps.append(float(line))
     
-    with open(directory + '/accelerations.txt', 'r') as f:
+    with open(directory + 'accelerations.txt', 'r') as f:
         for line in f:
             y_accels.append(float(line))
 

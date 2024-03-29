@@ -6,7 +6,7 @@ from record import record
 
 def main():
 
-    directory = 'eval/'
+    directory = 'eval2/'
     t_stamps, y_accels = record()
 
     t_stamps = np.array(t_stamps)
